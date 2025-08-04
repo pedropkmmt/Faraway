@@ -18,6 +18,7 @@
     margin: auto;
     width: 350px;
 }
+
 .control{
     display: flex;
     margin-left:auto ;
@@ -51,6 +52,22 @@
     margin-left:auto ;
     margin-right: auto;
     justify-content: center;
+}
+.list ul {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    list-style: none;
+    margin-top: 20px;
+    gap: 100px 250px;
+    color: white;
+    font: 200;
+}
+.list input{
+    margin-right: 5px;
+}
+.list button{
+    background: transparent;
+    border: none;
 }
 .bottom {
     position: sticky;
