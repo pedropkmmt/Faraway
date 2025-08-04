@@ -11,6 +11,7 @@ function App() {
     <div className='add'>
       <div className='control'>
       <p>what do you need for your trip?</p>
+       <input className='num' type="number" placeholder='1' min={1}/>
       <input type="text" />
       <button>Add</button>
       </div>
