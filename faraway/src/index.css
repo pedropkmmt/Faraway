@@ -18,7 +18,13 @@
     margin: auto;
     width: 350px;
 }
-
+.add {
+  background-color: #FD5800;
+  width: 100%;
+  padding-bottom: 30px;
+  padding-top: 30px;
+  margin-right: 10px;
+}
 .control{
     display: flex;
     margin-left:auto ;
@@ -31,22 +37,30 @@
     border: none;
     padding: 5px;
     background-color: beige;
+    margin-right: 5px;
 }
 .control .num{
     width: 50px;
 }
-.control button{
+.form button{
     border-radius: 100px;
     border: none;
     width: 50px;
+    padding: 5px;
     background-color:rgb(26, 236, 191);
 }
-.add {
-  background-color: #FD5800;
-  width: 100%;
-  padding-bottom: 30px;
-  padding-top: 30px;
+form select{
+    border-radius: 50px;
+    width: 65%;
+    padding: 5px;
+    background-color: beige;
+    margin-right: 2px;
+    margin-bottom: 5px;
 }
+ option{
+   max-width: 100%;
+}
+
 .list{
      display: flex;
     margin-left:auto ;

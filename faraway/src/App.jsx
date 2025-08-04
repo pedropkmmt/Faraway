@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import './index.css'
+import { use } from 'react'
 function App() {
- 
+ const [description, setDescription ] = useState("") 
+ const [quantity, setQuantity] = useState(5)
   const items = [
     {id: 1, description: "Passport", quantity: 2, packed: false},
     {id: 2, description: "Passport", quantity: 2, packed: false},
@@ -10,6 +12,13 @@ function App() {
     {id: 5, description: "Passport", quantity: 2, packed: true},
 
   ]
+  function handleSumbit(e){
+    e.preventDefault()
+    if (!description) return;
+    const newItem = {description, quantity, packed:false, id: Date.now()}
+    setDescription('')
+    setQuantity(1)
+  }
   return (
     <div className="container">
       <div className="header">
@@ -18,9 +27,25 @@ function App() {
       <div className="add">
         <div className="control">
           <p>what do you need for your trip?</p>
-          <input className="num" type="number" placeholder="1" min={1} />
-          <input type="text" />
-          <button>Add</button>
+          <form className="form" onSubmit={handleSumbit}>
+            <select
+              value={quantity}
+              onChange={(e) => setQuantity(Number(e.target.value))}
+            >
+              {Array.from({ length: 20 }, (_, i) => i + 1).map((num) => (
+                <option value={num} key={num}>
+                  {num}
+                </option>
+              ))}
+            </select>
+            <input
+              type="text"
+              placeholder="Item..."
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            />
+            <button>Add</button>
+          </form>
         </div>
       </div>
       <div className="list">
@@ -28,7 +53,13 @@ function App() {
           {items.map((item) => (
             <li key={item.id}>
               <input type="checkbox" />
-              <span style={item.packed === true ? {textDecoration: "line-through"} : {textDecoration: "none"}}>
+              <span
+                style={
+                  item.packed === true
+                    ? { textDecoration: "line-through" }
+                    : { textDecoration: "none" }
+                }
+              >
                 {item.quantity} {item.description}{" "}
               </span>
               <button>❌</button>
